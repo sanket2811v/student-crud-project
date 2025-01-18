@@ -1,0 +1,18 @@
+{
+    "details" : [
+        {
+            "name" : "Sanket Vaishya" ,
+            "id " : "67" ,
+            "subject" : "Science" ,
+            "age" : "22" , 
+            "address" : "Dombivli"
+        } ,
+        {
+            "name" : "Aniket Vaishya" ,
+            "id " : "6" ,
+            "subject" : "Maths" ,
+            "age" : "20" , 
+            "address" : "Dombivli"
+        }
+    ]
+}
