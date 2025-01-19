@@ -9,13 +9,16 @@ export async function DELETE(req) {
     if (!id) {
       return NextResponse.json({ success: false, message: 'ID is required' }, { status: 400 });
     }
+
     if(typeof id !== 'number'){
-      return NextResponse.json({ success: false, message: 'ID is required' }, { status: 400 });
+      return NextResponse.json({success : false , message : "ID must be integer but not any other dataType"} , {status : 400})
     }
-   
-    return NextResponse.json({ success: true, message: 'Deleted successfully'}, { status: 200 });
+    const dbquery = `DELETE FROM children.information WHERE id = ?`;
+    const result = await db.query(dbquery, [id]);
+
+    return NextResponse.json({ success: true, message: 'Deleted successfully', result }, { status: 200 });
   } catch (error) {
     console.error(error);
-    return NextResponse.json({ success: false, message: 'Deletion failed'}, { status: 500 });
+    return NextResponse.json({ success: false, message: 'Deletion failed', error }, { status: 500 });
   }
 }
